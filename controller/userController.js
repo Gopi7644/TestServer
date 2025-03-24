@@ -12,7 +12,7 @@ export const create = async (req, res) => {
     }
     const savedData = await userData.save();
     res.status(200).json({
-      savedData: savedData,
+      data: savedData,
       msg: "User created successfully!",
     });
   } catch (err) {
