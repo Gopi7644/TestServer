@@ -19,7 +19,7 @@ const usermodel = new mongoose.Schema({
         type: String,
         required: true
     },
-    profileImage:{
+    image:{
         type: String,
     },
     public_id: {
