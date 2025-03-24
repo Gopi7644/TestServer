@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { v4 as uuidv4 } from "uuid";
 
 const usermodel = new mongoose.Schema({
     fname:{
@@ -18,7 +19,15 @@ const usermodel = new mongoose.Schema({
         type: String,
         required: true
     },
-})
+    profileImage:{
+        type: String,
+    },
+    public_id: {
+        type: String,
+        default: uuidv4,
+        unique: true
+    }
+},{timestamps: true})
 
 
 export const UserTwo = mongoose.model("UserTwo", usermodel)

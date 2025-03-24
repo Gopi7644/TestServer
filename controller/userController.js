@@ -1,12 +1,15 @@
+import express from "express";
+
 import { UserTwo } from "../model/user.model.js";
+export const route = express.Router();
 
 export const create = async (req, res) => {
   try {
-    const userData = new UserTwo(req.body);
-    // console.log(userData);
-    // console.log(req.body);
-    // console.log("reqest:",req);
-    console.log("reqest body:",req.body);
+    const body = req.body;
+    // body.profileImage = req.file ? req.file.path : null;
+    // body.profileImage = profileImage;
+    console.log(body);
+    const userData = new UserTwo(body);
     if (!userData) {
       res.status(404).json({ msg: "User data Not Found" });
     }
@@ -16,6 +19,7 @@ export const create = async (req, res) => {
       msg: "User created successfully!",
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json({ message: err.message });
   }
 };
@@ -23,6 +27,7 @@ export const create = async (req, res) => {
 export const getAll = async (req, res) => {
   try {
     const usersData = await UserTwo.find();
+    console.log("users data:",usersData);
     if (!usersData) {
       res.status(404).json({ msg: "Users data Not Found" });
     }
