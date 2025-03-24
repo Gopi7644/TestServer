@@ -3,6 +3,10 @@ import { UserTwo } from "../model/user.model.js";
 export const create = async (req, res) => {
   try {
     const userData = new UserTwo(req.body);
+    // console.log(userData);
+    // console.log(req.body);
+    // console.log("reqest:",req);
+    console.log("reqest body:",req.body);
     if (!userData) {
       res.status(404).json({ msg: "User data Not Found" });
     }
