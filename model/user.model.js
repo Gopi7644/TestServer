@@ -29,5 +29,13 @@ const usermodel = new mongoose.Schema({
     }
 },{timestamps: true})
 
+const videoSchema = new mongoose.Schema({
+    title: { type: String, required: true },
+    description: { type: String, required: true },
+    videoUrl: { type: String, required: true } // ✅ Cloudinary से आया Video URL
+}, { timestamps: true });
+
+export const Video = mongoose.model("Video", videoSchema);
+
 
 export const UserTwo = mongoose.model("UserTwo", usermodel)
