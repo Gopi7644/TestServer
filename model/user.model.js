@@ -26,6 +26,10 @@ const usermodel = new mongoose.Schema({
         type: String,
         default: uuidv4,
         unique: true
+    },
+    video: {
+        type: String,
+        unique: true
     }
 },{timestamps: true})
 
