@@ -8,7 +8,7 @@ import { uploadVideo } from "../middleware/videoUploader.js";
 
 export const route = express.Router();
 // cloudinaryFileUpload.single("file"),
-// route.post("/create", create);
+route.post("/create", create);
 route.post("/upload", upload.single("image"), async (req, res) => {
     try {
       if (!req.file) {
@@ -27,6 +27,7 @@ route.post("/upload", upload.single("image"), async (req, res) => {
   
       await newUser.save();
       res.status(201).json({ message: "Image uploaded successfully", user: newUser });
+      
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
